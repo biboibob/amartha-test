@@ -17,7 +17,9 @@ function Layout({ children }) {
   return (
     <div className="flex flex-col relative bg-soft-gray-2 min-h-screen">
       <Header />
-      <main className="flex flex-col grow bg-soft-gray-2">{children}</main>
+      <main className="flex flex-col container grow bg-soft-gray-2">
+        {children}
+      </main>
       <Footer />
     </div>
   );

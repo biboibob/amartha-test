@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { PageRoutePath } from "./utils/config";
 import {
   Home,
+  DetailAnime,
   Error
 } from "./pages/index";
 // import PublicRoute from "./utils/Routes/PublicRoute";
@@ -28,6 +29,17 @@ function App() {
             // <PrivateRoute>
               <Layout>
                 <Home />
+              </Layout>
+            // </PrivateRoute>
+          }
+        />
+
+        <Route
+          path={PageRoutePath.DETAIL_ANIME}
+          element={
+            // <PrivateRoute>
+              <Layout>
+                <DetailAnime />
               </Layout>
             // </PrivateRoute>
           }
