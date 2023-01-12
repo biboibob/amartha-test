@@ -14,6 +14,10 @@ export const getAllAnime = async (data) => {
   return await AxiosInstance.get(APIRoutePath.GET_ALL_ANIME, { params: data });
 };
 
+export const getAnimeSeason = async (data) => {
+  return await AxiosInstance.get(APIRoutePath.GET_ANIME_SEASON);
+};
+
 export const getDetailAnime = async (data) => {
   return await AxiosInstance.get(
     `${APIRoutePath.GET_DETAIL_ANIME}/${data.id}/full`

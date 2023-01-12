@@ -1,4 +1,12 @@
 import React, { Component } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+import { Pagination as PaginationSwiper, Navigation } from "swiper";
 
 /* HOC */
 import HOC from "..//HOC/mainHOC";
@@ -7,7 +15,7 @@ import HOC from "..//HOC/mainHOC";
 import { Pagination } from "../components/Index";
 
 // Service
-import { getAllAnime } from "../helper/api";
+import { getAllAnime, getAnimeSeason } from "../helper/api";
 import { PageRoutePath } from "../utils/config";
 
 export class Home extends Component {
@@ -16,6 +24,7 @@ export class Home extends Component {
 
     this.state = {
       dataListAnime: [],
+      dataListSeasonNow: [],
       pageSetting: {
         last_visible_page: 2194,
         has_next_page: true,
@@ -24,7 +33,13 @@ export class Home extends Component {
     };
   }
   componentDidMount() {
-    this.getData();
+    const { toast } = this.props;
+    Promise.all([this.getData(), this.getRecommendationAnime()]).then((res) => {
+      // toast.fire({
+      //   icon: "success",
+      //   title: "Fetch Successfull",
+      // });
+    });
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -34,6 +49,15 @@ export class Home extends Component {
       this.getData();
     }
   }
+
+  getRecommendationAnime = () => {
+    getAnimeSeason().then((res) => {
+      const data = res.data;
+      this.setState({
+        dataListSeasonNow: data.data.slice(0, 10),
+      });
+    });
+  };
 
   getData = () => {
     const requestBody = {
@@ -70,8 +94,40 @@ export class Home extends Component {
   };
 
   render() {
+    console.log(this.state.dataListSeasonNow);
     return (
       <div className="flex flex-col py-3">
+        <Swiper
+          pagination={{
+            type: "progressbar",
+          }}
+          navigation={true}
+          modules={[PaginationSwiper, Navigation]}
+          className="w-100"
+        >
+          {this.state.dataListSeasonNow.map((val) => (
+            <SwiperSlide className="flex py-5 px-20">
+              {/* <div className="w-50 h-50" style={{backgroundImage: `url("https://via.placeholder.com/500")` }}></div> */}
+              <img
+                src={val.images.webp.large_image_url}
+                className="basis-1/4"
+              />
+              <div className="flex flex-col bg-soft-black-color basis-3/5 p-4 text-white">
+                <span className="text-3xl font-bold">{val.title}</span>
+                <span className="mt-auto flex gap-2 justify-end">
+                  Coming On:
+                  <span className="font-black italic">
+                    {val.aired.string !== "Not available"
+                      ? new Date(val?.aired?.from).toLocaleDateString()
+                      : "No Available Date"}
+                  </span>
+                </span>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        {/* Anime List with Pagination */}
         <div className="grid grid-cols-2 py-3 md:grid-cols-3 xl:grid-cols-4 gap-4">
           {this.state.dataListAnime.map((val, idx) => (
             <div
