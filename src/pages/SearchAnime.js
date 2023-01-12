@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import Swal from "sweetalert2";
 
+/* HOC */
+import HOC from "../HOC/mainHOC";
+
 // Service
 import { PageRoutePath } from "../utils/config";
 
@@ -119,7 +122,6 @@ export class SearchAnime extends Component {
 
   navigateTo = (Route, data) => {
     const { navigate } = this.props;
-
     if (Route === PageRoutePath.DETAIL_ANIME_PLAIN) {
       navigate(`${Route}/${data}`);
     } else {
@@ -259,4 +261,4 @@ export class SearchAnime extends Component {
   }
 }
 
-export default SearchAnime;
+export default HOC(SearchAnime);
