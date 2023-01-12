@@ -10,10 +10,24 @@ const AxiosInstance = axios.create({
 });
 
 /* Get Section */
-export const getAllAnime = async(data) => {
+export const getAllAnime = async (data) => {
   return await AxiosInstance.get(APIRoutePath.GET_ALL_ANIME, { params: data });
 };
 
-export const getDetailAnime = async(data) => {
-    return await AxiosInstance.get(`${APIRoutePath.GET_DETAIL_ANIME}/${data.id}/full`);
-  };
+export const getDetailAnime = async (data) => {
+  return await AxiosInstance.get(
+    `${APIRoutePath.GET_DETAIL_ANIME}/${data.id}/full`
+  );
+};
+
+export const getAnimeBySearch = async (data) => {
+  return await AxiosInstance.get(
+    APIRoutePath.GET_DETAIL_ANIME, { params: data }
+  );
+};
+
+export const getCharacterBySearch = async (data) => {
+  return await AxiosInstance.get(
+    APIRoutePath.GET_DETAIL_CHARACTER, { params: data }
+  );
+};

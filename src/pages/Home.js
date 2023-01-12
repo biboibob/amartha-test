@@ -75,13 +75,14 @@ export class Home extends Component {
         <div className="grid grid-cols-2 py-3 md:grid-cols-3 xl:grid-cols-4 gap-4">
           {this.state.dataListAnime.map((val, idx) => (
             <div
-              className="flex flex-col gap-2"
+              className="flex flex-col gap-2 cursor-pointer"
               key={idx}
               onClick={() =>
                 this.navigateTo(PageRoutePath.DETAIL_ANIME_PLAIN, val.mal_id)
               }
             >
               <img
+                alt={"imageList"}
                 src={val.images.jpg.large_image_url}
                 className="rounded-md w-auto h-5/6 object-cover"
               />

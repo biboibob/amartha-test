@@ -4,6 +4,7 @@ import { PageRoutePath } from "./utils/config";
 import {
   Home,
   DetailAnime,
+  SearchAnime,
   Error
 } from "./pages/index";
 // import PublicRoute from "./utils/Routes/PublicRoute";
@@ -24,7 +25,7 @@ function App() {
         /> */}
 
         <Route
-          path={PageRoutePath.Home}
+          path={PageRoutePath.HOME}
           element={
             // <PrivateRoute>
               <Layout>
@@ -40,6 +41,17 @@ function App() {
             // <PrivateRoute>
               <Layout>
                 <DetailAnime />
+              </Layout>
+            // </PrivateRoute>
+          }
+        />
+
+        <Route
+          path={PageRoutePath.SEARCH_ANIME}
+          element={
+            // <PrivateRoute>
+              <Layout>
+                <SearchAnime />
               </Layout>
             // </PrivateRoute>
           }

@@ -5,9 +5,13 @@ module.exports = {
     extend: {
       colors: {
         "primary-color": "#7C51A1",
-        "soft-black-color": "##232b2b",
+        "soft-black-color": "#181A18",
+        "gray-color": "#A49065",
+        "youtube-color": "#FF0000"
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+  ],
 }
