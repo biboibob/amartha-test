@@ -1,4 +1,6 @@
 export const PageRoutePath = {
+    LOGIN: "/Login",
+    REGISTER: "/Register",
     HOME: "/",
     DETAIL_ANIME: "/Detail-Anime/:id",
     DETAIL_ANIME_PLAIN: "/Detail-Anime",

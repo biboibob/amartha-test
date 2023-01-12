@@ -5,10 +5,12 @@ import {
   Home,
   DetailAnime,
   SearchAnime,
-  Error
+  Login,
+  Error,
+  Register,
 } from "./pages/index";
-// import PublicRoute from "./utils/Routes/PublicRoute";
-// import PrivateRoute from "./utils/Routes/PrivateRoute";
+import PublicRoute from "./utils/Routes/PublicRoute";
+import PrivateRoute from "./utils/Routes/PrivateRoute";
 
 import Layout from "./components/template/Layout";
 
@@ -18,47 +20,59 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* if get auth */}
-        {/* <PrivateRoute
-          path={PageRoutePath.HOME}
-          element={<ApplicationPages.Home />}
-        /> */}
+ 
+        <Route
+          path={PageRoutePath.REGISTER}
+          element={
+            <PublicRoute>
+              <Register />
+            </PublicRoute>
+          }
+        />
+
+        <Route
+          path={PageRoutePath.LOGIN}
+          element={
+            <PublicRoute>
+              <Login />
+            </PublicRoute>
+          }
+        />
 
         <Route
           path={PageRoutePath.HOME}
           element={
-            // <PrivateRoute>
+            <PrivateRoute>
               <Layout>
                 <Home />
               </Layout>
-            // </PrivateRoute>
+            </PrivateRoute>
           }
         />
 
         <Route
           path={PageRoutePath.DETAIL_ANIME}
           element={
-            // <PrivateRoute>
+            <PrivateRoute>
               <Layout>
                 <DetailAnime />
               </Layout>
-            // </PrivateRoute>
+            </PrivateRoute>
           }
         />
 
         <Route
           path={PageRoutePath.SEARCH_ANIME}
           element={
-            // <PrivateRoute>
+            <PrivateRoute>
               <Layout>
                 <SearchAnime />
               </Layout>
-            // </PrivateRoute>
+            </PrivateRoute>
           }
         />
 
         <Route path="*" element={<Error />} />
-       
       </Routes>
     </BrowserRouter>
   );

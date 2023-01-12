@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         "primary-color": "#7C51A1",
         "soft-black-color": "#181A18",
+        "dark-gray-color": "#D3D3D3",
         "gray-color": "#A49065",
         "youtube-color": "#FF0000"
       },
