@@ -74,8 +74,6 @@ export class Register extends Component {
 
     const { password, confirmPassword } = this.state.form;
 
-    console.log(password);
-
     if (
       password.value !== confirmPassword.value ||
       password.value === "" ||

@@ -24,16 +24,6 @@ export class SearchAnime extends Component {
     };
   }
 
-  componentDidMount() {
-    // Promise.all([
-    //   this.getData(),
-    //   /* Handle Too Many Request from JIKAN */
-    //   setTimeout(() => {
-    //     this.getCharacter();
-    //   }, 1000),
-    // ]).then((res) => {});
-  }
-
   componentDidUpdate(prevProps, prevState) {
     if (prevState.search !== this.state.search && this.state.search !== "") {
       Promise.all([this.getData(), this.getCharacter()]).then((res) => {});

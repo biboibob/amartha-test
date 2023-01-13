@@ -26,7 +26,6 @@ const PublicRoute = ({ children }) => {
         getSessionStorage("User Information") !== null &&
         new Date().getTime() < new Date(loginData?.expiredOn)
       ) {
-        console.log("here");
         navigate(PageRoutePath.HOME);
       } else {
         removeSessionStorage("User Information");
