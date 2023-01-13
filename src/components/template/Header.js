@@ -49,7 +49,7 @@ function Header(props) {
           onClick={() => setPanel(panel ? false : true)}
         >
           <i className="fa-solid fa-circle-user fa-lg "></i>
-          {loginData && loginData.username}
+          <span className="break-all">{loginData && loginData.username}</span>
         </div>
       </div>
 
@@ -57,14 +57,14 @@ function Header(props) {
       <div
         className={`customPanel flex flex-col gap-3 drop-shadow-lg fixed top-20 ${
           panel ? "right-5" : "-right-80"
-        } transition-all bg-white p-3 text-soft-black-color min-w-[14rem] rounded-lg`}
+        } transition-all bg-white p-3 text-soft-black-color w-[18rem] rounded-lg`}
       >
         <div className="flex gap-3">
           <div>
             <i className="fa-solid fa-circle-user fa-lg basis-1/3 mt-3"></i>
           </div>
           <div className="flex grow flex-col basis-2/3">
-            <span className="text-base md:text-lg">{loginData && loginData.username}</span>
+            <span className="text-base md:text-lg break-all">{loginData && loginData.username}</span>
             <span className="text-sm md:text-base text-gray-color">
               {loginData && loginData.email}
             </span>
