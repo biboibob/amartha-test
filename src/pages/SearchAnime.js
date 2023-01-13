@@ -177,6 +177,7 @@ export class SearchAnime extends Component {
                     }
                   >
                     <img
+                      alt={idx}
                       src={val.images.webp.large_image_url}
                       className="float rounded-xl w-20 md:w-auto h-auto md:h-96 object-center object-cover"
                     />
@@ -207,10 +208,13 @@ export class SearchAnime extends Component {
                     key={idx}
                   >
                     <img
+                      alt={idx}
                       src={val.images.webp.image_url}
                       className="w-24 h-24 md:h-40 md:w-40 rounded-full object-top object-cover"
                     />
-                    <span className="font-bold text-sm md:text-base">{val.name}</span>
+                    <span className="font-bold text-sm md:text-base">
+                      {val.name}
+                    </span>
                   </a>
                 ))}
               </div>
@@ -234,6 +238,7 @@ export class SearchAnime extends Component {
                     }
                   >
                     <img
+                      alt={idx}
                       src={val.images.webp.large_image_url}
                       className="float rounded-xl h-auto w-8 md:w-10 basis-1/4"
                     />

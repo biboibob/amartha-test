@@ -1,4 +1,3 @@
-import { IDLE_FETCHER } from "@remix-run/router";
 import React, { Component } from "react";
 import Swal from "sweetalert2";
 
@@ -97,7 +96,7 @@ export class Login extends Component {
     return (
       <div className="bg-primary-color min-h-screen flex justify-center items-center">
         <div className="flex flex-col w-fit rounded-lg bg-white py-5 px-3 md:p-5 gap-4 md:min-w-[30%]">
-          <img src={Logo} className="object-contain w-auto h-10 md:h-14" />
+          <img src={Logo} className="object-contain w-auto h-10 md:h-14" alt="logoColor "/>
           <form onSubmit={this.onSubmit} className="flex flex-col gap-4">
             <div className="flex flex-col gap-2">
               <Input
@@ -115,7 +114,7 @@ export class Login extends Component {
             <Button className={"w-full"} value={"Login"} type="submit" />
           </form>
 
-          <div className="flex items-center gap-3 text-dark-gray-color">
+          <div className="flex items-center gap-3 text-primary-color">
             <span className="grow border-b" />
             <span>or</span>
             <span className="grow border-b" />

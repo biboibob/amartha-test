@@ -57,7 +57,7 @@ function Header(props) {
       <div
         className={`customPanel flex flex-col gap-3 drop-shadow-lg fixed top-20 ${
           panel ? "right-5" : "-right-80"
-        } transition-all bg-white p-3 text-soft-black-color min-w-[18rem] rounded-lg`}
+        } transition-all bg-white p-3 text-soft-black-color min-w-[14rem] rounded-lg`}
       >
         <div className="flex gap-3">
           <div>

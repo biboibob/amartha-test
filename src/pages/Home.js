@@ -33,13 +33,7 @@ export class Home extends Component {
     };
   }
   componentDidMount() {
-    const { toast } = this.props;
-    Promise.all([this.getData(), this.getRecommendationAnime()]).then((res) => {
-      // toast.fire({
-      //   icon: "success",
-      //   title: "Fetch Successfull",
-      // });
-    });
+    Promise.all([this.getData(), this.getRecommendationAnime()])
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -94,7 +88,6 @@ export class Home extends Component {
   };
 
   render() {
-    console.log(this.state.dataListSeasonNow);
     return (
       <div className="flex flex-col gap-5 py-3">
         <Swiper
@@ -116,6 +109,7 @@ export class Home extends Component {
             >
               {/* <div className="w-50 h-50" style={{backgroundImage: `url("https://via.placeholder.com/500")` }}></div> */}
               <img
+                alt={idxVal}
                 src={val.images.webp.large_image_url}
                 className="object-cover h-72 md:h-full w-auto md:basis-1/4"
               />

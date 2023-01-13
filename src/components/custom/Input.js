@@ -7,7 +7,7 @@ function Input({ onChange, value, name, label, type, classNameInput }) {
       <label className="text-base font-light text-primary-color">{label}</label>
       <div className="flex w-full relative">
         <input
-          className={`${classNameInput} ${type === "password" && "!pr-12"} outline-none border-[.1rem] min-w-[18rem] w-full transition-all duration-500 border-dark-gray-color focus:border-primary-color p-2 rounded-lg text-sm md:text-base`}
+          className={`${classNameInput && classNameInput} ${type === "password" && "!pr-12"} outline-none border-[.1rem] min-w-[18rem] w-full transition-all duration-500 border-dark-gray-color focus:border-primary-color p-2 rounded-lg text-sm md:text-base`}
           type={type === "password" && showPassword ? "text" : type}
           value={value}
           name={name}

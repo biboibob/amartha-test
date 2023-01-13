@@ -11,6 +11,7 @@ function Layout({ children }) {
   useEffect(() => {
     var elmnt = document.body;
     elmnt.scrollTop = 0;
+    elmnt.style.transform  = 'scale(1)';
     window.scrollTo({ top: 0 });
   }, [location.pathname]);
 
