@@ -94,8 +94,8 @@ export class Login extends Component {
 
   render() {
     return (
-      <div className="bg-primary-color min-h-screen flex justify-center items-center">
-        <div className="flex flex-col w-fit rounded-lg bg-white py-5 px-3 md:p-5 gap-4 md:min-w-[30%]">
+      <div className="bg-primary-color min-h-screen flex justify-center p-3 md:p-0 items-center">
+        <div className="flex flex-col w-fit rounded-lg bg-white py-5 px-3 md:p-5 gap-4 min-w-full md:min-w-[20rem]">
           <img src={Logo} className="object-contain w-auto h-10 md:h-14" alt="logoColor "/>
           <form onSubmit={this.onSubmit} className="flex flex-col gap-4">
             <div className="flex flex-col gap-2">
